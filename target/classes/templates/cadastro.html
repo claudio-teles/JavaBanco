@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Cadastro</title>
+	</head>
+	<body>
+	
+		<div align="center">
+			<h1>Cadastro de Pessoa</h1>
+			<hr/>
+			<br/>
+			
+			<form method="POST">
+				<table border="1">
+					<tr>
+						<td>Nome</td>
+						<td><input type="text" name="nome" /></td>
+					</tr>
+					<tr>
+						<td>Tipo</td>
+						<td>
+							<select name="tipo">
+								<option th:value="PF" >Pessoa Física</option>
+								<option th:value="PJ" >Pessoa Júridica</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>N° de Documento</td>
+						<td ><input type="text" name="numeroDeDocumento" placeholder="CPF 11 digitos ou CNPJ 14 digitos" /></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<button type="submit">Cadastrar</button>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		
+		<br/>
+		<hr/>
+		
+		<div align="center">
+			<a href="/contas">Ver Todas as Contas Bancárias</a>
+		</div>
+		
+		<br/>
+		<hr/>
+		
+		<div align="center">
+			<h1>Pessoas Cadastradas</h1>
+			<table border="1">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nome</th>
+						<th>Tipo</th>
+						<th>N° de Documento</th>
+						<th>Score</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="pessoa : ${pessoas}">
+						<td th:text="${pessoa.id}">ID</td>
+						<td th:text="${pessoa.nome}">Nome</td>
+						<td th:text="${pessoa.tipo}">Tipo</td>
+						<td th:text="${pessoa.numeroDeDocumento}">N° de Documento</td>
+						<td th:text="${pessoa.score}">Score</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<br/>
+		<hr/>
+		
+	</body>
+</html>

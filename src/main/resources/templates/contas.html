@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Contas</title>
+	</head>
+	<body>
+		<div align="center">
+			<h1>Contas Cadastradas</h1>
+			<table border="1">
+				<thead>
+					<tr>
+						<th>Número da Conta</th>
+						<th>Agência</th>
+						<th>Tipo</th>
+						<th>Vínculo</th>
+						<th>Nome</th>
+						<th>Valor Cheque Especial</th>
+						<th>Valor Cartão de Crédito</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="conta : ${contas}">
+						<td th:text="${conta.numero}">Número da Conta</td>
+						<td th:text="${conta.agencia}">Agência</td>
+						<td th:text="${conta.tipo}">Tipo</td>
+						<td th:text="${conta.vinculo}">Vínculo</td>
+						<td th:text="${conta.pessoa.nome}">Nome</td>
+						<td th:text="${conta.chequeEspecial.limiteCheque}">Valor Cheque Especial</td>
+						<td th:text="${conta.cartaoCredito.limiteCartaoCredito}">Valor Cartão de Crédito</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
